@@ -1,0 +1,8 @@
+//
+//  Copyright © 2018 TICE Software UG (haftungsbeschränkt). All rights reserved.
+//
+
+NSLocationAlwaysUsageDescription = "TICE needs your location to show your position on the map and share your location with others during an active meetup.";
+NSLocationWhenInUseUsageDescription = "TICE needs your location to show your position on the map and share your location with others during an active meetup.";
+NSCameraUsageDescription = "TICE needs access to your camera to let you shoot and send a photo.";
+NSPhotoLibraryUsageDescription = "TICE needs access to your photos to let you choose and send a photo.";

@@ -1,0 +1,12 @@
+{
+    "Simulator Target Bundle": "app.tice.TICE.development",
+    "aps": {
+        "alert": {
+            "title": "Meetup Started",
+            "body" : "Join the meetup to share your location with the others.",
+        },
+        "category": "meetingCreated"
+    },
+    "teamId": "8410CC0A-EAEA-4D61-923C-CAA4868F83F7",
+    "meetupId": "E14B677A-2065-49D9-B12C-79D8D9C39C27"
+}

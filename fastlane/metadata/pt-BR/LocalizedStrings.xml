@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Max. 30 characters -->
+    <string name="appstore.name">"TICE - Localizador Encontros"</string>
+
+    <!-- Max. 30 characters -->
+    <string name="appstore.subtitle">"GPS Rastrear Familia &amp; Grupos"</string>
+
+    <!-- Max. 4000 characters -->
+    <string name="appstore.description">"O applicativo TICE permite a coordenação local entre amigos, colegas e clientes. Compartilhe sua localização em tempo real e encontre-se com a sua familia, em um ambiente profissional, para uma reunião individual ou com grupos. Inicie um encontro de forma fácil e segura. Crie um grupo no aplicativo TICE e envie o link do convite para as pessoas que você quer encontrar. Você vê os usuários em um mapa privado em tempo real, você pode definir um ponto de encontro e ver onde as pessoas estão e como eles chegam ao lugar. Assim todo mundo pode se encontrar - de forma simples e segura.
+
+No momento do check-in, não pedimos qualquer dado pessoal, não é necessário de se-registrar nem salvar o número de telefone ou e-mail. O TICE pode ser usado de forma completamente anónima, através de privacy-by-design e criptografia de ponta a ponta os seus dados são protegidos contra terceiros. Um primeiro passo para um tratamento mais sustentável dos nossos dados sensíveis na Internet.
+
+COORDENAÇÃO SIMPLES
+Convida para um encontro no aplicativo TICE. Os participantes podem se ver em tempo real em um mapa privado. Comunicação e mensagens longas sobre o a coordenação do encontro não é mais necessário.
+
+PONTO DE ENCONTRO 
+Defina um ponto de encontro e acompanhe como os participantes chegam ao ponto de encontro.
+
+PRIVADO E SEGURO
+A arquitetura do applicativo TICE é baseada em privacy-by-design. Criptografia moderna de ponta a ponta garante um alto nível de proteção dos dados do usuário. 
+
+ANONIMIDADE
+O registo é completamente anónimo. Não é necessário fornecer qualquer dado pessoal de contacto, como número de telefone ou e-mail.
+
+CONTROLE COMPLETO
+Controle total sobre a liberação de dados da localização e do rastreamento. 
+
+UM APP PARA TUDO E TODOS 
+O aplicativo TICE é universalmente aplicável: Para uso privado ou no uso empresarial.
+
+100% GRATUITO
+TICE é um projeto desenvolvido com paixão. Nos não queremos se enriquecer com seus dados. Pelo contrário, temos o objectivo de criar mais consciência para uma forma responsável e segura de tratar os nossos dados sensíveis na Internet. Depois de ter sido financiado pela bolsa fundadora EXIST do Ministério da Economia e Tecnologia da Alemanha em 2019, estamos à procura de mais incentivos que permitam um crescimento sustentável do projecto TICE. 
+
+CASOS DE USO
+Família e amigos 
+Coordenação de grupos 
+Equipes esportivos
+Excursões escolares
+Passeios
+Grupos de viagem
+Serviços de entrega
+Serviços de segurança
+
+TORNAR-SE PARTE DO MOVIMENTO TICE
+Site oficial: https://ticeapp.com
+Siga-nos no Twitter: https://twitter.com/ticeapp
+Curta-nos no Facebook: https://www.facebook.com/ticeapp/
+Inspire-se no Instagram: https://www.instagram.com/ticeapp/
+
+Music in the App Preview: The Great Break-off by The Insider"</string>
+
+    <!-- Max. 100 characters, no words from title or subtitle; Use >97 characters! -->
+    <string name="appstore.keywords">"filho,navegação,geo,tracker,privacidade,tempo,real,reunião,segurança,criptografia,mapa,geofence,live"</string>
+    <string name="appstore.release_notes">"In this release we have done the following:
+- New follow mode on the map, to track someone on their way
+- Show current speed of others
+- Get directly asked to participate in a meeting that has been started
+- Improved stability, performance and battery usage
+- Bug fixes and small UI updates
+
+If you encounter a bug or want to share your thoughts on TICE feel free to reach out to us."</string>
+</resources>

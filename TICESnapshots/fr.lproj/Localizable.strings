@@ -1,0 +1,26 @@
+"snapshot.group.1" = "Famille";
+"snapshot.group.2" = "Réunion au café";
+"snapshot.group.3" = "Réunion hebdomadaire";
+"snapshot.user.self" = "Sarah";
+"snapshot.user.1" = "Maman";
+"snapshot.user.2" = "Papa";
+"snapshot.user.3" = "Yann";
+"snapshot.user.4" = "Camille";
+
+/*Abkürzung = M. Kruger*/
+"snapshot.user.5" = "M. Dupont";
+
+/*Abkürzung = M.*/
+"snapshot.user.6" = "M. Martin";
+"snapshot.group.4" = "Badminton";
+
+/*Abkürzung Mme*/
+"snapshot.user.7" = "Mme Fuchs";
+"snapshot.user.8" = "Antoine";
+"snapshot.user.9" = "Léonie";
+"snapshot.user.10" = "David";
+"snapshot.user.11" = "Lisa";
+"snapshot.user.12" = "Félix";
+"snapshot.chat.message.1" = "Je propose que nous nous y retrouvons. Je vais mettre un point de rencontre sur le plan de la ville.";
+"snapshot.chat.message.2" = "Très bien, j'y vais directement.";
+"snapshot.chat.message.own" = "C'est bien, ce n'est pas si loin. A tout de suite!";

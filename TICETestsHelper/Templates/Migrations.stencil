@@ -1,0 +1,7 @@
+@testable import TICE
+
+let __allMigrations: [Migration.Type] = [
+{% for type in types.implementing.Migration %}
+    {{type.name}}.self,
+{% endfor %}
+]

@@ -1,0 +1,313 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Beekeeper",
+        "repositoryURL": "https://github.com/ChaosCoder/Beekeeper",
+        "state": {
+          "branch": null,
+          "revision": "dafcf6d1a69b6d2c052f3177c6469254ebe9ec7c",
+          "version": "0.6.1"
+        }
+      },
+      {
+        "package": "CryptorECC",
+        "repositoryURL": "https://github.com/TICESoftware/BlueECC.git",
+        "state": {
+          "branch": null,
+          "revision": "9365709b9db6265262113d4047de42e19d4a0078",
+          "version": "1.2.6"
+        }
+      },
+      {
+        "package": "Chatto",
+        "repositoryURL": "https://github.com/badoo/Chatto",
+        "state": {
+          "branch": null,
+          "revision": "491d886f86cbe654af2d68411fba029c046efe42",
+          "version": null
+        }
+      },
+      {
+        "package": "Clibsodium",
+        "repositoryURL": "https://github.com/TICESoftware/Clibsodium",
+        "state": {
+          "branch": null,
+          "revision": "1299f1735480130410c1d277c5278b6100159a51",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "ConvAPI",
+        "repositoryURL": "https://github.com/ChaosCoder/ConvAPI",
+        "state": {
+          "branch": null,
+          "revision": "6772e40fcd9b3b0b61ad5a66ec11e2e15534933e",
+          "version": "1.0.1"
+        }
+      },
+      {
+        "package": "PMKCoreLocation",
+        "repositoryURL": "https://github.com/PromiseKit/CoreLocation",
+        "state": {
+          "branch": null,
+          "revision": "d027bbcdfffc83fa7a790aa6f9189b18c94632e2",
+          "version": "3.1.1"
+        }
+      },
+      {
+        "package": "CryptoSwift",
+        "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "5669f222e46c8134fb1f399c745fa6882b43532e",
+          "version": "1.3.8"
+        }
+      },
+      {
+        "package": "Cuckoo",
+        "repositoryURL": "https://github.com/Brightify/Cuckoo",
+        "state": {
+          "branch": null,
+          "revision": "0ef473893cc068425c118d1cfe5629cbca1ef343",
+          "version": "1.4.1"
+        }
+      },
+      {
+        "package": "DoubleRatchet",
+        "repositoryURL": "https://github.com/TICESoftware/DoubleRatchet.git",
+        "state": {
+          "branch": null,
+          "revision": "fabe285787d5d42eb7d055c7b060ec9dab6a3ef1",
+          "version": "2.0.2"
+        }
+      },
+      {
+        "package": "Eureka",
+        "repositoryURL": "https://github.com/xmartlabs/Eureka",
+        "state": {
+          "branch": null,
+          "revision": "81f3ea3d69dc99f8684b8bce1224908e101c679f",
+          "version": "5.3.2"
+        }
+      },
+      {
+        "package": "PMKFoundation",
+        "repositoryURL": "https://github.com/PromiseKit/Foundation.git",
+        "state": {
+          "branch": null,
+          "revision": "1a276e598dac59489ed904887e0740fa75e571e0",
+          "version": "3.3.4"
+        }
+      },
+      {
+        "package": "GRDB",
+        "repositoryURL": "https://github.com/TICESoftware/GRDB.swift",
+        "state": {
+          "branch": "SPM+sqlcipher",
+          "revision": "f74bfab8c8aa77b91f7d38284c5a3203ccced2cf",
+          "version": null
+        }
+      },
+      {
+        "package": "HKDF",
+        "repositoryURL": "https://github.com/TICESoftware/HKDF",
+        "state": {
+          "branch": null,
+          "revision": "04b38772ab35bab32da0bb76c31ff658f5256b5f",
+          "version": "1.0.10"
+        }
+      },
+      {
+        "package": "jwt-kit",
+        "repositoryURL": "https://github.com/vapor/jwt-kit.git",
+        "state": {
+          "branch": null,
+          "revision": "b50b30b567726b14ac282aa6d3a42a52c1ebc8c0",
+          "version": "4.2.2"
+        }
+      },
+      {
+        "package": "Observable",
+        "repositoryURL": "https://github.com/roberthein/Observable",
+        "state": {
+          "branch": null,
+          "revision": "c789e973131a4c2aba2a575345a91bcc06eef38d",
+          "version": "2.2.0"
+        }
+      },
+      {
+        "package": "OpenLocationCode",
+        "repositoryURL": "https://github.com/google/open-location-code-swift",
+        "state": {
+          "branch": null,
+          "revision": "2e16b0d81c661ea432ce75d3ec7fe7d39f3387e3",
+          "version": "3.0.0"
+        }
+      },
+      {
+        "package": "PromiseKit",
+        "repositoryURL": "https://github.com/mxcl/PromiseKit",
+        "state": {
+          "branch": null,
+          "revision": "aea48ea1855f5d82e2dffa6027afce3aab8f3dd7",
+          "version": "6.13.3"
+        }
+      },
+      {
+        "package": "Pulley",
+        "repositoryURL": "https://github.com/TICESoftware/Pulley",
+        "state": {
+          "branch": "rebasedMaster",
+          "revision": "20515be75f0b4c9c680a5a70f8fd9b976ff5d7d8",
+          "version": null
+        }
+      },
+      {
+        "package": "Shouter",
+        "repositoryURL": "https://github.com/ChaosCoder/Shouter",
+        "state": {
+          "branch": null,
+          "revision": "d607567d5d60f636afd8bee18b8380fe3b3260e6",
+          "version": "0.5.0"
+        }
+      },
+      {
+        "package": "Sniffer",
+        "repositoryURL": "https://github.com/Kofktu/Sniffer",
+        "state": {
+          "branch": null,
+          "revision": "09bb5c3c2f1ab787af6bc2f44c6b615fc497311d",
+          "version": "2.1.2"
+        }
+      },
+      {
+        "package": "Starscream",
+        "repositoryURL": "https://github.com/daltoniam/Starscream",
+        "state": {
+          "branch": null,
+          "revision": "e6b65c6d9077ea48b4a7bdda8994a1d3c6969c8d",
+          "version": "3.1.1"
+        }
+      },
+      {
+        "package": "swift-crypto",
+        "repositoryURL": "https://github.com/apple/swift-crypto.git",
+        "state": {
+          "branch": null,
+          "revision": "3bea268b223651c4ab7b7b9ad62ef9b2d4143eb6",
+          "version": "1.1.6"
+        }
+      },
+      {
+        "package": "swift-log",
+        "repositoryURL": "https://github.com/apple/swift-log",
+        "state": {
+          "branch": null,
+          "revision": "e8aabbe95db22e064ad42f1a4a9f8982664c70ed",
+          "version": "1.1.1"
+        }
+      },
+      {
+        "package": "swift-nio-zlib-support",
+        "repositoryURL": "https://github.com/apple/swift-nio-zlib-support.git",
+        "state": {
+          "branch": null,
+          "revision": "37760e9a52030bb9011972c5213c3350fa9d41fd",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "Sodium",
+        "repositoryURL": "https://github.com/TICESoftware/swift-sodium.git",
+        "state": {
+          "branch": null,
+          "revision": "f2b32566f9b9f4f3a534e125a9151cbc9639a48d",
+          "version": "0.9.2"
+        }
+      },
+      {
+        "package": "Swinject",
+        "repositoryURL": "https://github.com/Swinject/Swinject.git",
+        "state": {
+          "branch": null,
+          "revision": "8a76d2c74bafbb455763487cc6a08e91bad1f78b",
+          "version": "2.7.1"
+        }
+      },
+      {
+        "package": "SwinjectAutoregistration",
+        "repositoryURL": "https://github.com/Swinject/SwinjectAutoregistration",
+        "state": {
+          "branch": null,
+          "revision": "136e57231434d038c3beef939e81f60f36ec8aec",
+          "version": "2.7.0"
+        }
+      },
+      {
+        "package": "SwinjectStoryboard",
+        "repositoryURL": "https://github.com/BarredEwe/SwinjectStoryboard",
+        "state": {
+          "branch": "swiftPM",
+          "revision": "fdf0d891d6c6413bd6ecbc58dd3e7b2f88e68415",
+          "version": null
+        }
+      },
+      {
+        "package": "TICEAPIModels",
+        "repositoryURL": "https://github.com/TICESoftware/TICE-APIModels",
+        "state": {
+          "branch": null,
+          "revision": "d46fb592e5ed0d0beec737c74b04564df41309a4",
+          "version": "53.0.0"
+        }
+      },
+      {
+        "package": "TICEAuth",
+        "repositoryURL": "https://github.com/TICESoftware/TICE-Auth",
+        "state": {
+          "branch": null,
+          "revision": "e8a0a84f1d21a57a0935ec8b939150b1072a411c",
+          "version": "5.0.0"
+        }
+      },
+      {
+        "package": "Valet",
+        "repositoryURL": "https://github.com/square/Valet",
+        "state": {
+          "branch": null,
+          "revision": "7447d1661d938643b0004084367e7bdcb94fdcc4",
+          "version": "3.2.8"
+        }
+      },
+      {
+        "package": "Version",
+        "repositoryURL": "https://github.com/mrackwitz/Version",
+        "state": {
+          "branch": null,
+          "revision": "fd4b0eb5756aa7f1c33977fb626cf37d2140a3a0",
+          "version": "0.8.0"
+        }
+      },
+      {
+        "package": "X3DH",
+        "repositoryURL": "https://github.com/TICESoftware/X3DH.git",
+        "state": {
+          "branch": null,
+          "revision": "ecba3ec92a5314fa0d7b207f8a4eb114dbc82652",
+          "version": "2.0.9"
+        }
+      },
+      {
+        "package": "ZIPFoundation",
+        "repositoryURL": "https://github.com/weichsel/ZIPFoundation",
+        "state": {
+          "branch": null,
+          "revision": "cf10bbff6ac3b873e97b36b9784c79866a051a8e",
+          "version": "0.9.12"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -1,0 +1,11 @@
+api_key: 4a1fa895e7442e19b284300a8bffd385
+project_id: 321301
+type: android_strings
+tags: [appstore]
+
+languages: [en-US, en-GB, de, fr, pt-BR, da, es, es-MX]
+path: fastlane/metadata/{LANGUAGE}/LocalizedStrings.xml
+path_replace:
+  de: fastlane/metadata/de-DE/LocalizedStrings.xml
+  fr: fastlane/metadata/fr-FR/LocalizedStrings.xml
+  es: fastlane/metadata/es-ES/LocalizedStrings.xml

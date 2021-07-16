@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="n4J-Ys-VMV" customClass="ChatBar" customModule="TICE" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="123"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="pUs-kV-rj4" userLabel="TextView" customClass="ExpandableTextView" customModule="ChattoAdditions">
+                    <rect key="frame" x="8" y="8" width="540" height="107"/>
+                    <color key="backgroundColor" name="Background"/>
+                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="16"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textView>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="btg-Q2-zan" userLabel="Tab selector container">
+                    <rect key="frame" x="0.0" y="123" width="600" height="0.0"/>
+                    <subviews>
+                        <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lme-QQ-DT0" customClass="HorizontalStackScrollView" customModule="ChattoAdditions">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="0.0"/>
+                            <color key="backgroundColor" name="HighlightBackground"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </scrollView>
+                    </subviews>
+                    <color key="backgroundColor" name="HighlightBackground"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Lme-QQ-DT0" firstAttribute="leading" secondItem="btg-Q2-zan" secondAttribute="leading" id="B3i-L8-uXE"/>
+                        <constraint firstAttribute="bottom" secondItem="Lme-QQ-DT0" secondAttribute="bottom" id="OTS-rl-r3h"/>
+                        <constraint firstAttribute="trailing" secondItem="Lme-QQ-DT0" secondAttribute="trailing" id="Pvv-e9-76h"/>
+                        <constraint firstAttribute="trailing" secondItem="Lme-QQ-DT0" secondAttribute="trailing" id="X7H-ap-cIa"/>
+                        <constraint firstItem="Lme-QQ-DT0" firstAttribute="top" secondItem="btg-Q2-zan" secondAttribute="top" id="h9L-U7-2oq"/>
+                        <constraint firstAttribute="height" id="q7n-w8-vQ1"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="X7H-ap-cIa"/>
+                        </mask>
+                    </variation>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GQ6-Ja-QUp" userLabel="Top border">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="1"/>
+                    <color key="backgroundColor" red="0.66666668650000005" green="0.66666668650000005" blue="0.66666668650000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" identifier="top-border-height" id="isI-gt-wEs"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxD-ED-Ghj">
+                    <rect key="frame" x="556" y="79" width="36" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="2hW-rO-MwT"/>
+                        <constraint firstAttribute="width" constant="36" id="Gnz-oh-0yX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="4" minY="4" maxX="4" maxY="4"/>
+                    <state key="normal" image="send"/>
+                    <connections>
+                        <action selector="buttonTapped:" destination="n4J-Ys-VMV" eventType="touchUpInside" id="S2S-Sk-xsh"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" name="HighlightBackground"/>
+            <color key="tintColor" name="HighlightBackground"/>
+            <constraints>
+                <constraint firstItem="btg-Q2-zan" firstAttribute="leading" secondItem="n4J-Ys-VMV" secondAttribute="leading" id="0PP-uu-DF4"/>
+                <constraint firstItem="btg-Q2-zan" firstAttribute="top" secondItem="bxD-ED-Ghj" secondAttribute="bottom" constant="8" id="2bi-hf-YMd"/>
+                <constraint firstItem="pUs-kV-rj4" firstAttribute="top" secondItem="n4J-Ys-VMV" secondAttribute="top" constant="8" id="88p-dw-45B"/>
+                <constraint firstAttribute="bottom" secondItem="btg-Q2-zan" secondAttribute="bottom" id="AOn-d3-udN"/>
+                <constraint firstAttribute="trailing" secondItem="bxD-ED-Ghj" secondAttribute="trailing" constant="8" id="Ah7-3v-fvY"/>
+                <constraint firstItem="GQ6-Ja-QUp" firstAttribute="top" secondItem="n4J-Ys-VMV" secondAttribute="top" id="DaG-Ar-1WY"/>
+                <constraint firstItem="btg-Q2-zan" firstAttribute="top" secondItem="n4J-Ys-VMV" secondAttribute="top" id="Iui-Cy-OyP"/>
+                <constraint firstItem="btg-Q2-zan" firstAttribute="top" secondItem="pUs-kV-rj4" secondAttribute="bottom" constant="8" id="Rgc-RR-5Ak"/>
+                <constraint firstItem="GQ6-Ja-QUp" firstAttribute="leading" secondItem="n4J-Ys-VMV" secondAttribute="leading" id="S3w-9g-8rr"/>
+                <constraint firstAttribute="trailing" secondItem="GQ6-Ja-QUp" secondAttribute="trailing" id="hJj-yW-n50"/>
+                <constraint firstAttribute="trailing" secondItem="btg-Q2-zan" secondAttribute="trailing" id="iwT-Fc-ghN"/>
+                <constraint firstItem="bxD-ED-Ghj" firstAttribute="leading" secondItem="pUs-kV-rj4" secondAttribute="trailing" constant="8" id="jua-hb-Eir"/>
+                <constraint firstItem="pUs-kV-rj4" firstAttribute="leading" secondItem="n4J-Ys-VMV" secondAttribute="leading" constant="8" id="z9B-dh-GKd"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Iui-Cy-OyP"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="internalTextView" destination="pUs-kV-rj4" id="pVR-Gn-p7g"/>
+                <outlet property="scrollView" destination="Lme-QQ-DT0" id="SjH-c8-9GD"/>
+                <outlet property="sendButton" destination="bxD-ED-Ghj" id="9b5-gL-rBm"/>
+                <outlet property="tabBarContainerHeightConstraint" destination="q7n-w8-vQ1" id="cp0-Vl-WEP"/>
+                <outlet property="textView" destination="pUs-kV-rj4" id="aEF-r3-xrO"/>
+                <outlet property="topBorderHeightConstraint" destination="isI-gt-wEs" id="zxU-1b-x5O"/>
+                <outletCollection property="constraintsForVisibleTextView" destination="Rgc-RR-5Ak" collectionClass="NSMutableArray" id="DdR-ef-nuq"/>
+                <outletCollection property="constraintsForHiddenTextView" destination="Iui-Cy-OyP" collectionClass="NSMutableArray" id="bsf-ir-6Ci"/>
+                <outletCollection property="constraintsForHiddenSendButton" destination="X7H-ap-cIa" collectionClass="NSMutableArray" id="7ay-bO-fGf"/>
+                <outletCollection property="constraintsForVisibleSendButton" destination="Ah7-3v-fvY" collectionClass="NSMutableArray" id="unA-mB-4vF"/>
+            </connections>
+            <point key="canvasLocation" x="-342.02898550724638" y="67.96875"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="send" width="96" height="96"/>
+        <namedColor name="Background">
+            <color red="0.95686274509803926" green="0.96078431372549022" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="HighlightBackground">
+            <color red="0.16078431372549021" green="0.50196078431372548" blue="0.72549019607843135" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,11 @@
+{
+    "Simulator Target Bundle": "app.tice.TICE.development",
+    "aps": {
+        "alert": {
+            "title": "Message from Alex in HSHTG",
+            "body" : "Hey, what's up?",
+        },
+        "category": "messageReceived"
+    },
+    "teamId": "8410CC0A-EAEA-4D61-923C-CAA4868F83F7"
+}

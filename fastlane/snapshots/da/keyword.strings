@@ -1,0 +1,21 @@
+
+/*Screenshot - Map with Annotation*/
+"TeamScreenWithAnnotation" = "Lokation";
+
+/*Screenshot - Dark Groups*/
+"GroupsScreen" = "Gruppemøde";
+
+/*Screenshot - Group Info*/
+"TeamInfoScreen" = "Privat & Sikkert";
+
+/*Screenshot - Map*/
+"TeamScreen" = "Venner og Familie";
+
+/*Screenshot - Dark Register*/
+"Register" = "100% Anonymt";
+
+/*Screenshot - Settings*/
+"Setting" = "Fuldstændig Kontrol";
+
+/*Screenshot - Chat*/
+"Chat" = "Chifreret chat";

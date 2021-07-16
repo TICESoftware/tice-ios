@@ -1,0 +1,11 @@
+api_key: 4a1fa895e7442e19b284300a8bffd385
+project_id: 321301
+type: apple_strings
+tags: [screenshots_title]
+
+languages: [en-US, en-GB, de, fr, pt-BR, da, es, es-MX]
+path: fastlane/snapshots/{LANGUAGE}/title.strings
+path_replace:
+  de: fastlane/snapshots/de-DE/title.strings
+  fr: fastlane/snapshots/fr-FR/title.strings
+  es: fastlane/snapshots/es-ES/title.strings

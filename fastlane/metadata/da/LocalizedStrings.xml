@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Max. 30 characters -->
+    <string name="appstore.name">"TICE – Mød vennerne sikkert"</string>
+
+    <!-- Max. 30 characters -->
+    <string name="appstore.subtitle">"Del position, find, pejl"</string>
+
+    <!-- Max. 4000 characters -->
+    <string name="appstore.description">"TICE tillader lokal koordination mellem venner, medarbejdere og kunder. Del din position i realtime uden at efterlade nogen data-spor og mød andre helt privat eller professionel, under fire øjne eller i grupper.
+
+Lav en aftale enkelt og sikkert, dan en gruppe i TICE-appen og send en invitations-link til dem du vil mødes med. På et privat kort kan du se dig selv og de andre i realtime. Du kan fastlægge et mødested og se, hvor de andre lige nu opholder sig og hvornår de vil komme. Sådan mødes man med TICE – enkelt og sikkert.
+
+Ved tilmeldingen bliver der ikke spurgt efter personlige detaljer, der findes ingen registrering og du bliver ikke spurgt efter mobilnummeret, e-mail eller cpr-nummeret. TICE kan bruges totalt anonym. Gennem Privacy-by-Design og en modern end-to-end-encryption er dine dataer beskyttet overfor andre. Det er et første skridt på vejen til en bæredygtig omgang med vores dataer i nettet.
+
+SIMPLE KOORDINATION
+Inviter til et TICE-møde. Nu kan alle deltagere ses på et privat kort i realtime. Aldrig mere komplicerede messages og inviklet kommunikation.
+
+FASTLÆG ET MØDESTED
+Fastlæg et mødested og se, hvordan deltagerne ankommer.
+
+PRIVAT OG SIKKERT
+TICE-arkitekturen er baseret på Privacy-by-Design. Anvenderdataer er i høj grad sikker gennem ægte end-to-end-encryption.
+
+ANONYMITET
+Tilmeldingen sker anonymt. Der kræves ingen personlige kontaktdetaljer som mobilnummeret eller e-mail-adressen.
+
+FULDSTÆNDIG KONTROL
+Du har selv fuldstændig styr på dine instillinger og frigivelsen af location-dataer.
+
+TIL ALLE OG ENHVER
+TICE kan bruges såvel helt privat som professionelt.
+
+100% GRATIS
+Det var vores passion som skabte TICE. Vi ønsker ikke at misbruge dine dataer. Tværtimod ønsker vi at sensibilisere for en ansvarlig omgang med dataer.
+I 2019 blev vi støttet gennem EXIST founder scholarship. Nu håber vi på support til en bæredygtig vækst af TICE.
+
+ANVENDELSESMULIGHEDER
+familie og venner
+koordination af store grupper
+idrætsforeninger
+lejerskole
+rejsegrupper
+leverings-service
+sikkerhedstjenester
+
+BLIV EN DEL AF TICE-BEVÆGELSEN
+Official website: https://ticeapp.com
+Follow us on Twitter: https://twitter.com/ticeapp
+Like us on Facebook: https://www.facebook.com/ticeapp/
+Get inspired on Instagram: https://www.instagram.com/ticeapp/
+
+Music in the App Preview: The Great Break-off by The Insider"</string>
+
+    <!-- Max. 100 characters, no words from title or subtitle; Use >97 characters! -->
+    <string name="appstore.keywords">"gps,tracking,mine,venner,familie,møde,lokation,se,følge,track,børn,chifreret,live,sammen,træffe,kort"</string>
+    <string name="appstore.release_notes">"In this release we have done the following:
+- New follow mode on the map, to track someone on their way
+- Show current speed of others
+- Get directly asked to participate in a meeting that has been started
+- Improved stability, performance and battery usage
+- Bug fixes and small UI updates
+
+If you encounter a bug or want to share your thoughts on TICE feel free to reach out to us."</string>
+</resources>

@@ -1,0 +1,70 @@
+{
+  "default": {
+    "title": {
+      "font": "./SF-Pro-Display-Regular.otf",
+      "font_size": 96
+    },
+    "keyword": {
+      "font": "./SF-Pro-Display-Heavy.otf",
+      "color": "#2980b9",
+      "font_size": 128
+    },
+    "background": "light.png",
+    "frame": "BLACK",
+    "padding": 25,
+    "title_min_height": "40%",
+    "interline_spacing": -20,
+    "stack_title": true
+  },
+  "data": [
+    {
+      "filter": "01",
+      "background": "light.png",
+      "title": {
+        "color": "#111"
+      }
+    },
+    {
+      "filter": "02", 
+      "background": "light.png",
+      "title": {
+        "color": "#111"
+      }
+    },
+    {
+      "filter": "03",
+      "background": "light.png",
+      "title": {
+        "color": "#111"
+      }
+    },
+    {
+      "filter": "04",
+      "background": "light.png",
+      "title": {
+        "color": "#111"
+      }
+    },
+    {
+      "filter": "05",
+      "background": "light.png",
+      "title": {
+        "color": "#111"
+      }
+    },
+    {
+      "filter": "06", 
+      "background": "dark.png",
+      "title": {
+        "color": "#eee"
+      }
+    },
+    {
+      "filter": "07",
+      "background": "light.png",
+      "title": {
+        "color": "#111"
+      }
+    }
+  ]
+}

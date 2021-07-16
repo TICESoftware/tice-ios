@@ -1,0 +1,42 @@
+{
+  "configurations" : [
+    {
+      "id" : "D9877CE2-02F4-4159-9CBB-80211720B6FD",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "USE_MOCKS",
+        "enabled" : false
+      },
+      {
+        "argument" : "USE_PLAIN",
+        "enabled" : false
+      },
+      {
+        "argument" : "USE_LOCAL_SERVER",
+        "enabled" : false
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:TICE.xcodeproj",
+      "identifier" : "7D9D514321874D1D00168F78",
+      "name" : "TICE"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:TICE.xcodeproj",
+        "identifier" : "7D9D515721874D1E00168F78",
+        "name" : "TICEUnitTests"
+      }
+    }
+  ],
+  "version" : 1
+}

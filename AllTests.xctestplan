@@ -1,0 +1,46 @@
+{
+  "configurations" : [
+    {
+      "id" : "4233F8CA-EF96-4A10-A1F9-6BF3B8E37ED6",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:TICE.xcodeproj",
+        "identifier" : "7D9D515721874D1E00168F78",
+        "name" : "TICEUnitTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:TICE.xcodeproj",
+        "identifier" : "7D385FAC2680B82700C16C85",
+        "name" : "TICEIntegrationTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:TICE.xcodeproj",
+        "identifier" : "7D9D516221874D1E00168F78",
+        "name" : "TICEUITests"
+      }
+    },
+    {
+      "enabled" : false,
+      "target" : {
+        "containerPath" : "container:TICE.xcodeproj",
+        "identifier" : "E52CCDF422C0DE9E003D8A55",
+        "name" : "TICESnapshots"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -1,0 +1,21 @@
+
+/*Screenshot - Map with Annotation*/
+"01" = "Lokation";
+
+/*Screenshot - Dark Groups*/
+"02" = "Gruppemøde";
+
+/*Screenshot - Group Info*/
+"04" = "Privat & Sikkert";
+
+/*Screenshot - Map*/
+"05" = "Venner og Familie";
+
+/*Screenshot - Dark Register*/
+"06" = "100% Anonymt";
+
+/*Screenshot - Settings*/
+"07" = "Fuldstændig Kontrol";
+
+/*Screenshot - Chat*/
+"03" = "Chifreret chat";

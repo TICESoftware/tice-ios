@@ -1,0 +1,37 @@
+# frozen_string_literal: true
+
+devices([
+          'iPhone 8 Plus',
+          'iPhone 11 Pro Max'
+        ])
+
+languages(%w[
+            en-US
+            de-DE
+            fr-FR
+            pt-BR
+            es-ES
+            da
+          ])
+
+scheme('TICESnapshots')
+
+output_directory('./fastlane/snapshots')
+
+clear_previous_screenshots(true)
+
+configuration('Development')
+
+erase_simulator(true)
+
+number_of_retries(0)
+
+stop_after_first_error(true)
+
+concurrent_simulators(true)
+
+localize_simulator(true)
+
+disable_slide_to_type(true)
+
+dark_mode(true)

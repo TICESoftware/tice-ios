@@ -1,0 +1,6 @@
+api_key: 4a1fa895e7442e19b284300a8bffd385
+project_id: 321279
+type: apple_strings
+
+languages: [en, de]
+path: TICE/Resources/{LANGUAGE}.lproj/Localizable.strings

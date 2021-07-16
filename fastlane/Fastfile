@@ -1,0 +1,297 @@
+# frozen_string_literal: true
+
+default_platform(:ios)
+
+platform :ios do
+  desc 'Run tests'
+  lane :tests do |options|
+    skip_docs
+    sh('rm -rf test_output/*')
+    scan(
+      project: 'TICE.xcodeproj',
+      scheme: 'TICE',
+      cloned_source_packages_path: '.swift-packages',
+      xcpretty_args: '--color',
+      build_for_testing: true,
+      clean: true
+    )
+    begin
+      test_plan = options[:test_plan] || 'UnitTests'
+      puts "Running test plan '#{test_plan}'"
+      scan(
+        project: 'TICE.xcodeproj',
+        scheme: 'TICE',
+        testplan: test_plan,
+        cloned_source_packages_path: '.swift-packages',
+        xcpretty_args: '--color',
+        test_without_building: true,
+        reset_simulator: true,
+        reinstall_app: true,
+        app_identifier: 'app.tice.TICE.development',
+        device: 'iPhone 12',
+        result_bundle: true
+      )
+    ensure
+      sh('bundle exec xcparse screenshots test_output/TICE.xcresult test_output/screenshots')
+    end
+  end
+
+  desc 'Run linter'
+  lane :lint do
+    skip_docs
+    swiftlint(config_file: '.swiftlint.yml', quiet: true, strict: true, ignore_exit_status: true)
+  end
+
+  desc 'Prepare merge request'
+  lane :pr do
+    skip_docs
+    sh('git', 'push', '--dry-run')
+    lint_result = lint
+    if lint_result != '' && (prompt(text: 'Lint step exited with warnings/errors. Do you want to proceed anyway?',
+                                    boolean: true) == false)
+      UI.user_error!('Aborting as requested.')
+      next
+    end
+    sh('BRANCH=`git rev-parse --abbrev-ref HEAD | sed -e "s~/~%2F~g"` && open "https://github.com/TICESoftware/TICE-ios/compare/develop...${BRANCH}"')
+    sh('open "https://tenor.com"')
+  end
+
+  desc 'Download provisioning profiles'
+  lane :download_provisioning_profiles do
+    sh 'bundle exec fastlane sigh download_all'
+  end
+
+  desc 'Deploy ad-hoc testing'
+  lane :deployAdHoc do |options|
+    skip_docs
+
+    if options[:ci]
+      unlock_keychain(
+        path: 'Development',
+        add_to_search_list: :replace,
+        password: ENV['DEVELOPMENT_KEYCHAIN_PASSWORD']
+      )
+      directory = '~/.jenkins/userContent/testing'
+      label = ENV['GIT_BRANCH']
+    else
+      directory = './testing'
+      label = 'testing'
+    end
+
+    download_provisioning_profiles
+
+    testing_dir = '/usr/local/var/www/testing'
+    base_url = 'https://ci.tice.software/testing/'
+    file_name = "TICE-#{label}.ipa"
+    url = base_url + file_name
+    manifest_template_file = './fastlane/manifest-testing.plist'
+    manifest_filename = "manifest-#{label}.plist"
+    manifest_file = "./build/#{manifest_filename}"
+    version = getAppVersion
+
+    Dir.chdir('..') do
+      puts 'Cleaning old ad hoc builds'
+      sh "find #{directory} -type f -mtime +14 -print0 | xargs -0 rm -v --"
+      sh "find #{testing_dir} -type f -mtime +14 -print0 | xargs -0 rm -v --"
+
+      if options[:ci]
+        puts 'Cleaning old xcarchives'
+        sh "find ~/Library/Developer/Xcode/Archives -type d -name 'TICE-*.xcarchive' " \
+           "-not \\( -path '*TICE-release *.xcarchive' -prune \\) -mtime +30 -print0 | " \
+           'xargs -0 rm -rv --'
+      end
+    end
+
+    build_app(
+      project: 'TICE.xcodeproj',
+      configuration: 'Testing',
+      clean: true,
+      scheme: 'TICE',
+      cloned_source_packages_path: '.swift-packages',
+      export_method: 'ad-hoc',
+      output_directory: directory,
+      output_name: file_name
+    )
+
+    if options[:ci]
+
+      Dir.chdir('..') do
+        puts "Setting url #{url} in Manifest"
+        sh "mkdir -p $(dirname #{manifest_file})"
+        sh "cp \"#{manifest_template_file}\" \"#{manifest_file}\""
+        sh "/usr/libexec/PlistBuddy -c \"Set :items:0:assets:0:url #{url}\" \"#{manifest_file}\""
+        sh "/usr/libexec/PlistBuddy -c \"Set :items:0:metadata:bundle-version #{version}\" \"#{manifest_file}\""
+        sh "/usr/libexec/PlistBuddy -c \"Set :items:0:metadata:title TICE - Testing #{label}\" \"#{manifest_file}\""
+      end
+
+      puts 'Copying files to publicly accessible directory'
+      ipa_path = lane_context[SharedValues::IPA_OUTPUT_PATH]
+      artifacts = [ipa_path, manifest_file]
+      copy_artifacts(artifacts: artifacts, target_path: testing_dir, fail_on_missing: true)
+
+      encoded_manifest_url = URI.encode_www_form_component(base_url + manifest_filename)
+      itms_url = "itms-services://nohost?action=download-manifest&url=#{encoded_manifest_url}"
+      slack(
+        message: "A new testing build for #{label} (#{version}) is ready for testing.",
+        slack_url: ENV['SLACK_WEBHOOK_URL'],
+        attachment_properties: {
+          actions: [
+            {
+              type: 'button',
+              name: 'download_button',
+              text: 'Download on iOS',
+              url: itms_url,
+              style: 'primary'
+            }
+          ]
+        }
+      )
+    end
+  end
+
+  desc 'Trigger Preview'
+  lane :preview do |options|
+    buildPreview(options)
+    deliverPreview(options)
+  end
+
+  desc 'Update App Version'
+  lane :updateAppVersion do |options|
+    puts "Updating with #{options}"
+    rel_path = options[:rel_path] || '../'
+    puts rel_path
+    project = Xcodeproj::Project.open("#{rel_path}TICE.xcodeproj")
+    puts project
+    project.build_configuration_list.build_configurations.each do |build_configuration|
+      puts "Bumping version of #{build_configuration} from \
+            #{build_configuration.build_settings['APP_VERSION']} to #{options[:version]}"
+      build_configuration.build_settings['APP_VERSION'] = options[:version]
+    end
+    project.save
+    puts "Saved project. Returning #{options[:version]}"
+    options[:version]
+  end
+
+  desc 'Get App Version'
+  lane :getAppVersion do |options|
+    rel_path = options[:rel_path] || '../'
+    project = Xcodeproj::Project.open("#{rel_path}TICE.xcodeproj")
+    project.build_settings('Production')['APP_VERSION']
+  end
+
+  desc 'Build Preview'
+  lane :buildPreview do |options|
+    new_version = options[:version]
+    should_bump_version = !new_version.empty?
+    skip_increment_build_number = options[:skip_increment_build_number] == true
+
+    skip_docs
+    ensure_git_status_clean
+    download_provisioning_profiles
+
+    increment_build_number unless skip_increment_build_number
+
+    version = if should_bump_version
+                updateAppVersion(version: new_version)
+              else
+                getAppVersion
+              end
+
+    build_number = get_build_number
+
+    commit_version_bump(xcodeproj: './TICE.xcodeproj') if !skip_increment_build_number || should_bump_version
+
+    build_app(
+      project: 'TICE.xcodeproj',
+      configuration: 'Preview',
+      clean: true,
+      scheme: 'TICE',
+      cloned_source_packages_path: '.swift-packages',
+      export_method: 'app-store'
+    )
+
+    if !skip_increment_build_number || should_bump_version
+      add_git_tag(tag: "#{version}-#{build_number}-preview")
+      push_to_git_remote
+    end
+  end
+
+  desc 'Deliver Preview'
+  lane :deliverPreview do
+    pilot(skip_waiting_for_build_processing: true)
+  end
+
+  desc 'Trigger Release'
+  lane :release do |options|
+    buildRelease(options)
+    deliverRelease(options)
+  end
+
+  desc 'Build Release'
+  lane :buildRelease do |_options|
+    skip_docs
+    ensure_git_status_clean
+
+    build_app(
+      project: 'TICE.xcodeproj',
+      configuration: 'Production',
+      clean: true,
+      scheme: 'TICE',
+      cloned_source_packages_path: '.swift-packages',
+      export_method: 'app-store'
+    )
+
+    version = getAppVersion
+    build_number = get_build_number
+
+    add_git_tag(tag: "#{version}-#{build_number}")
+    push_to_git_remote
+  end
+
+  desc 'Deliver Release'
+  lane :deliverRelease do |options|
+    make_screenshots = options[:screenshots] == true
+    deliver(
+      force: true,
+      submission_information: {
+        add_id_info_uses_idfa: false
+      },
+      skip_screenshots: !make_screenshots,
+      precheck_include_in_app_purchases: false
+    )
+  end
+
+  desc 'Bump version'
+  lane :bumpVersion do
+    skip_docs
+
+    increment_build_number
+
+    version = getAppVersion
+    build_number = get_build_number
+
+    commit_version_bump(xcodeproj: './TICE.xcodeproj')
+    add_git_tag(tag: "#{version}-#{build_number}")
+  end
+
+  desc 'Style screenshots'
+  lane :style_screenshots do
+    frame_screenshots(path: './fastlane/snapshots', resume: true)
+    copy_artifacts(target_path: './fastlane/screenshots/de-DE', artifacts: './fastlane/snapshots/de-DE/*_framed.png')
+    copy_artifacts(target_path: './fastlane/screenshots/en-US', artifacts: './fastlane/snapshots/en-US/*_framed.png')
+    copy_artifacts(target_path: './fastlane/screenshots/en-GB', artifacts: './fastlane/snapshots/en-US/*_framed.png')
+    copy_artifacts(target_path: './fastlane/screenshots/fr-FR', artifacts: './fastlane/snapshots/fr-FR/*_framed.png')
+    copy_artifacts(target_path: './fastlane/screenshots/pt-BR', artifacts: './fastlane/snapshots/pt-BR/*_framed.png')
+    copy_artifacts(target_path: './fastlane/screenshots/es-ES', artifacts: './fastlane/snapshots/es-ES/*_framed.png')
+    copy_artifacts(target_path: './fastlane/screenshots/es-MX', artifacts: './fastlane/snapshots/es-ES/*_framed.png')
+    copy_artifacts(target_path: './fastlane/screenshots/da',    artifacts: './fastlane/snapshots/da/*_framed.png')
+  end
+
+  error do |lane, _exception, _options|
+    if %i[preview
+          release].include?(lane) && prompt(text: 'Lane failed. Should I run git reset on the repo?', boolean: true,
+                                            ci_input: 'n')
+      reset_git_repo(skip_clean: true, force: true)
+    end
+  end
+end

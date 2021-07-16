@@ -1,0 +1,9 @@
+AllCops:
+  Exclude:
+    - 'Server/**/*'
+    - 'CnC/**/*'
+    - 'Material/**/*'
+  NewCops: enable
+
+Metrics/BlockLength:
+  Enabled: false

@@ -1,0 +1,7 @@
+api_key: 4a1fa895e7442e19b284300a8bffd385
+project_id: 321301
+type: apple_strings
+tags: [snapshots]
+
+languages: [en-US, en-GB, de, fr, pt-BR, da, es, es-MX]
+path: TICESnapshots/{LANGUAGE}.lproj/Localizable.strings

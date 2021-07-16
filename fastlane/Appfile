@@ -1,0 +1,13 @@
+apple_id "fastlane@ticeapp.com"
+team_id "6YK3KTLWQR"
+itc_team_id "120922814"
+
+for_platform :ios do
+  for_lane :preview do
+    app_identifier "app.tice.TICE.preview"
+  end
+
+  for_lane :release do
+    app_identifier "app.tice.TICE.production"
+  end
+end

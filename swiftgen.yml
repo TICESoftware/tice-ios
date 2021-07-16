@@ -1,0 +1,8 @@
+strings:
+  inputs:
+    - TICE/Resources/en.lproj/Localizable.strings
+  outputs:
+    - templateName: structured-swift5
+      output: TICE/Helpers/LocalizedStrings+Generated.swift
+  options:
+    separator: "_"

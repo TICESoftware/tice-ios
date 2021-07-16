@@ -1,0 +1,8 @@
+//
+//  Copyright © 2018 TICE Software UG (haftungsbeschränkt). All rights reserved.
+//
+
+NSLocationAlwaysUsageDescription = "TICE benötigt Deinen Standort, um Dich auf der Karte anzuzeigen und Deinen Standort während eines aktiven Treffens mit den anderen zu teilen.";
+NSLocationWhenInUseUsageDescription = "TICE benötigt Deinen Standort, um Dich auf der Karte anzuzeigen und Deinen Standort während eines aktiven Treffens mit den anderen zu teilen.";
+NSCameraUsageDescription = "TICE benötigt Zugriff auf die Kamera, damit Du ein Foto machen und verschicken kannst.";
+NSPhotoLibraryUsageDescription = "TICE benötigt Zugriff auf die Fotobibliothek, damit Du ein Foto auswhählen und verschicken kannst.";
