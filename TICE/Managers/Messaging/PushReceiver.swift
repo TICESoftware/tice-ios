@@ -34,36 +34,37 @@ public class PushReceiver: PushReceiverType {
             return
         }
         
-        guard let envelope = try? Envelope(dictionary: payload, decoder: decoder) else {
-            completionHandler?(.failed)
-            return
-        }
-        
-        let timeout = Double(self.timeout)
-        let date = Date()
-        
-        let queue = DispatchQueue(label: "serialQueue")
-        var wasCalled = false
-        let semaphore = DispatchSemaphore(value: 0)
-
-        logger.info("Did receive envelope \(envelope.id) via push notification.")
-        
-        let wrappedHandler = { (result: ReceiveEnvelopeResult) in
-            queue.sync {
-                guard !wasCalled else { return }
-                wasCalled = true
-                logger.info("Completion handler was called after \(-date.timeIntervalSinceNow)s for push notification (envelope \(envelope.id)) with result: \(result)")
-                completionHandler?(result.rawResult)
-                semaphore.signal()
+        do {
+            let envelope = try Envelope(dictionary: payload, decoder: decoder)
+            let timeout = Double(self.timeout)
+            let date = Date()
+            
+            let queue = DispatchQueue(label: "serialQueue")
+            var wasCalled = false
+            let semaphore = DispatchSemaphore(value: 0)
+            
+            logger.info("Did receive envelope \(envelope.id) via push notification.")
+            
+            let wrappedHandler = { (result: ReceiveEnvelopeResult) in
+                queue.sync {
+                    guard !wasCalled else { return }
+                    wasCalled = true
+                    logger.info("Completion handler was called after \(-date.timeIntervalSinceNow)s for push notification (envelope \(envelope.id)) with result: \(result)")
+                    completionHandler?(result.rawResult)
+                    semaphore.signal()
+                }
             }
-        }
-        
-        receive(envelope: envelope, timeout: timeout, completionHandler: wrappedHandler)
-        
-        let result = semaphore.wait(wallTimeout: .now() + .milliseconds(Int(timeout * 1000)))
-        
-        if result == .timedOut {
-            wrappedHandler(.timeOut)
+            
+            receive(envelope: envelope, timeout: timeout, completionHandler: wrappedHandler)
+            
+            let result = semaphore.wait(wallTimeout: .now() + .milliseconds(Int(timeout * 1000)))
+            
+            if result == .timedOut {
+                wrappedHandler(.timeOut)
+            }
+        } catch {
+            logger.error(error)
+            completionHandler?(.failed)
         }
     }
 }
