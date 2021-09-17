@@ -446,6 +446,14 @@ class TeamMapViewModel: TeamMapViewModelType {
             self.reloadSynchronously()
         }
     }
+    
+    private func lastLocation(userId: UserId) -> Location? {
+        if userId == signedInUser.userId {
+            return locationManager.currentUserLocation
+        } else {
+            return locationSharingManager.lastLocation(userId: userId, groupId: team.groupId)
+        }
+    }
 
     deinit {
         self.notifier.unregister(UserLocationUpdateNotificationHandler.self, observer: self)
@@ -466,7 +474,7 @@ class TeamMapViewModel: TeamMapViewModelType {
         let memberLocations: [MemberLocation] = users.map {
             let state = locationSharingManager.locationSharingState(userId: $0.userId, groupId: team.groupId)
             guard state.enabled,
-                  let lastLocation = locationSharingManager.lastLocation(userId: $0.userId, groupId: team.groupId) else {
+                  let lastLocation = lastLocation(userId: $0.userId) else {
                 return MemberLocation(userId: $0.userId, lastLocation: nil)
             }
             
@@ -501,7 +509,7 @@ class TeamMapViewModel: TeamMapViewModelType {
         delegate.show(meetupViewModel: meetupViewModel)
         delegate.show(meetingPoint: meetingPointLocation)
 
-        for memberLocation in memberLocations {
+        for memberLocation in memberLocations.filter({ $0.userId != signedInUser.userId }) {
             delegate.show(location: memberLocation.lastLocation, for: memberLocation.userId)
         }
     }
