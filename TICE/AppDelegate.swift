@@ -152,11 +152,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        let userId = resolver.resolve(SignedInUserManagerType.self)!.signedInUser?.userId.uuidString
-        logger.debug("Application will enter foreground. UserId: \(userId ?? "n/a")")
+        
+        logger.debug("Application will enter foreground")
         
         resolver.resolve(ApplicationStorageManagerType.self)?.setApplicationIsRunningInForeground(true)
+        
+        guard resolver.resolve(ApplicationStorageManagerType.self)!.startFlowFinished() else {
+            logger.debug("Not doing anything on entering the foreground as start flow has not finished yet.")
+            return
+        }
+        
+        let userId = resolver.resolve(SignedInUserManagerType.self)!.signedInUser?.userId.uuidString
+        logger.debug("Application signed in userId: \(userId ?? "n/a")")
         
         let taskIdentifier = application.beginBackgroundTask(withName: "MessageBulkFetch") {
             logger.error("Background execution time expired for fetching messages.")
