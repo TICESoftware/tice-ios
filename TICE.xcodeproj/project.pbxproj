@@ -2066,7 +2066,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${SRCROOT}/TICE/Helpers/AppRevision+Generated.swift",
+				"$(SRCROOT)/TICE/Helpers/AppRevision+Generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2086,7 +2086,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"${SRCROOT}/TICE/Helpers/Secrets+Generated.swift",
+				"$(SRCROOT)/TICE/Helpers/Secrets+Generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
