@@ -23,7 +23,7 @@ class CryptoStorageManager: CryptoStorageManagerType {
     let database: DatabaseWriter
     let oneTimePrekeysMaxCount: Int
     
-    var messageKeyCaches: [ConversationId: MessageKeyCache] = [:]
+    @SynchronizedProperty var messageKeyCaches: [ConversationId: MessageKeyCache] = [:]
 
     enum CryptoStorageKey: String {
         case signingKey
