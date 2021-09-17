@@ -274,11 +274,11 @@ class DependencyRegistrator {
 
         container.registerSingleton(SignedInUserManagerType.self) { r in
             return SignedInUserManager(signedInUserStorageManager: r~>,
-                                          userStorageManager: r~>,
-                                          notifier: r~>,
-                                          tracker: r~>,
-                                          container: container,
-                                          resolver: r~>)
+                                       userStorageManager: r~>,
+                                       notifier: r~>,
+                                       tracker: r~>,
+                                       container: container,
+                                       resolver: r~>)
         }
 
         container.registerSingleton(UNUserNotificationCenterType.self) { _ in

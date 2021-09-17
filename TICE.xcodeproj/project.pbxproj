@@ -2074,6 +2074,7 @@
 		};
 		7DE685E2269DD3EC00ACEC88 /* Add Secrets */ = {
 			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
 			buildActionMask = 2147483647;
 			files = (
 			);
@@ -3757,8 +3758,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/badoo/Chatto";
 			requirement = {
-				kind = revision;
-				revision = 491d886f86cbe654af2d68411fba029c046efe42;
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.1.0;
 			};
 		};
 		E5515DD7260B4ECC00B91BAA /* XCRemoteSwiftPackageReference "X3DH" */ = {
@@ -3805,7 +3806,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/mxcl/PromiseKit";
 			requirement = {
-				kind = upToNextMajorVersion;
+				kind = upToNextMinorVersion;
 				minimumVersion = 6.13.3;
 			};
 		};
