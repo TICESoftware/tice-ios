@@ -231,7 +231,7 @@ class GroupNotificationReceiver: GroupNotificationReceiverType {
                 logger.warning("Could not send last location sharing state. Reason: \(error)")
             }.then { () -> Promise<Void> in
                 logger.debug("Sending last location to just joined member \(member.user.userId)")
-                let payload = LocationUpdate(location: lastLocation)
+                let payload = LocationUpdateV2(location: lastLocation, groupId: team.groupId)
                 let payloadContainer = PayloadContainer(payloadType: .locationUpdateV2, payload: payload)
                 return self.mailbox.send(payloadContainer: payloadContainer,
                                          to: [member.membership],
