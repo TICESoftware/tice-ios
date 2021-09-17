@@ -44,9 +44,13 @@ class WebSocketReceiver: Receiver {
         guard !socket.isConnected else { return }
         shouldConnect = true
         
-        logger.info("Connecting WebSocket.")
-        guard let signedInUser = signedInUserManager.signedInUser else { return }
-
+        logger.info("Connecting WebSocket")
+        
+        guard let signedInUser = signedInUserManager.signedInUser else {
+            logger.info("Aborting to connect to WebSocket. Reason: User is not signed in")
+            return
+        }
+        
         let authorization: Certificate
         do {
             authorization = try authManager.generateAuthHeader(signingKey: signedInUser.privateSigningKey, userId: signedInUser.userId)
