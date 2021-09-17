@@ -45,15 +45,17 @@ struct TeamCellViewModel: TeamCellViewModelType {
     let chatManager: ChatManagerType
 
     private var team: Team
+    private var lastUpdated: Date
     private var participationStatus: ParticipationStatus
     private var members: [Member]
 
-    init(team: Team, participationStatus: ParticipationStatus, members: [Member], groupStorageManager: GroupStorageManagerType, signedInUser: SignedInUser, nameSupplier: NameSupplierType, avatarSupplier: AvatarSupplierType, chatManager: ChatManagerType) {
+    init(team: Team, lastUpdated: Date, participationStatus: ParticipationStatus, members: [Member], groupStorageManager: GroupStorageManagerType, signedInUser: SignedInUser, nameSupplier: NameSupplierType, avatarSupplier: AvatarSupplierType, chatManager: ChatManagerType) {
         self.signedInUser = signedInUser
         self.nameSupplier = nameSupplier
         self.avatarSupplier = avatarSupplier
         self.chatManager = chatManager
         self.team = team
+        self.lastUpdated = lastUpdated
         self.participationStatus = participationStatus
         self.members = members
     }
@@ -83,19 +85,16 @@ struct TeamCellViewModel: TeamCellViewModelType {
     }
     
     var lastActivity: String? {
-        let chatItem: ChatItemProtocol? = chatManager.lastMessage(for: team.groupId)
-        guard let message = chatItem as? DateableProtocol else { return nil }
-        
-        if Calendar.current.isDateInToday(message.date) {
+        if Calendar.current.isDateInToday(lastUpdated) {
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .none
             dateFormatter.timeStyle = .short
-            return dateFormatter.string(from: message.date)
+            return dateFormatter.string(from: lastUpdated)
         } else {
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = .short
             dateFormatter.timeStyle = .none
-            return dateFormatter.string(from: message.date)
+            return dateFormatter.string(from: lastUpdated)
         }
     }
     

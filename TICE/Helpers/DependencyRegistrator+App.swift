@@ -124,19 +124,20 @@ extension DependencyRegistrator {
 
         container.register(TeamsViewModel.self) { r, coordinator, teams in
             return TeamsViewModel(coordinator: coordinator,
-								   notifier: r~>,
-								   teamManager: r~>,
-								   groupManager: r~>,
-								   groupStorageManager: r~>,
-                                   locationSharingManager: r~>,
-                                   chatManager: r~>,
-                                   chatStorageManager: r~>,
-								   signedInUser: r~>,
-								   tracker: r~>,
-                                   nameSupplier: r~>,
-                                   demoManager: r~>,
-								   resolver: r~>,
-								   teams: teams)
+                                  notifier: r~>,
+                                  teamManager: r~>,
+                                  groupManager: r~>,
+                                  groupStorageManager: r~>,
+                                  locationSharingManager: r~>,
+                                  chatManager: r~>,
+                                  chatStorageManager: r~>,
+                                  signedInUser: r~>,
+                                  tracker: r~>,
+                                  nameSupplier: r~>,
+                                  demoManager: r~>,
+                                  authManager: r~>,
+                                  resolver: r~>,
+                                  teams: teams)
         }
         container.register(RegisterViewModelType.self) { r, coordinator in
             return RegisterViewModel(coordinator: coordinator,
@@ -318,8 +319,9 @@ extension DependencyRegistrator {
         container.register(SimpleAnnotationDetailViewModel.self) { r, annotation in
             return SimpleAnnotationDetailViewModel(annotation: annotation, addressLocalizer: r~>)
         }
-        container.register(TeamCellViewModel.self) { r, team, members, participationStatus in
+        container.register(TeamCellViewModel.self) { r, team, members, lastUpdated, participationStatus in
             return TeamCellViewModel(team: team,
+                                     lastUpdated: lastUpdated,
                                      participationStatus: participationStatus,
                                      members: members,
                                      groupStorageManager: r~>,

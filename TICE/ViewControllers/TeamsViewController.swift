@@ -176,6 +176,7 @@ class TeamsViewModel {
     let chatManager: ChatManagerType
     let nameSupplier: NameSupplierType
     let demoManager: DemoManagerType
+    let authManager: AuthManagerType
     
     var teams: [Team]
     var demoTeam: DemoTeam?
@@ -188,7 +189,7 @@ class TeamsViewModel {
     private var membersObserverToken: ObserverToken?
     private var messageUpdateObserverToken: ObserverToken?
 
-    init(coordinator: MainFlow, notifier: Notifier, teamManager: TeamManagerType, groupManager: GroupManagerType, groupStorageManager: GroupStorageManagerType, locationSharingManager: LocationSharingManagerType, chatManager: ChatManagerType, chatStorageManager: ChatStorageManagerType, signedInUser: SignedInUser, tracker: TrackerType, nameSupplier: NameSupplierType, demoManager: DemoManagerType, resolver: Swinject.Resolver, teams: [Team]) {
+    init(coordinator: MainFlow, notifier: Notifier, teamManager: TeamManagerType, groupManager: GroupManagerType, groupStorageManager: GroupStorageManagerType, locationSharingManager: LocationSharingManagerType, chatManager: ChatManagerType, chatStorageManager: ChatStorageManagerType, signedInUser: SignedInUser, tracker: TrackerType, nameSupplier: NameSupplierType, demoManager: DemoManagerType, authManager: AuthManagerType, resolver: Swinject.Resolver, teams: [Team]) {
         self.coordinator = coordinator
         self.teamManager = teamManager
         self.groupManager = groupManager
@@ -201,6 +202,7 @@ class TeamsViewModel {
         self.chatManager = chatManager
         self.nameSupplier = nameSupplier
         self.demoManager = demoManager
+        self.authManager = authManager
         
         self.teams = teams
         self.teams.sort(by: sortByImportance)
@@ -210,8 +212,7 @@ class TeamsViewModel {
             self?.reloadSynchronously()
         }.add(to: &disposal)
         
-        teamsObserverToken = self.groupStorageManager.observeTeams(queue: .main) { [unowned self] in
-            self.teams = $0.sorted(by: sortByImportance)
+        teamsObserverToken = self.groupStorageManager.observeTeams(queue: .main) { [unowned self] _ in
             self.reloadSynchronously()
         }
         
@@ -279,53 +280,21 @@ class TeamsViewModel {
     }
     
     func sortByImportance(lhs: Team, rhs: Team) -> Bool {
-        let lhsParticipationStatus: ParticipationStatus
-        let rhsParticipationStatus: ParticipationStatus
-        do {
-            lhsParticipationStatus = try participationStatus(groupId: lhs.groupId)
-            rhsParticipationStatus = try participationStatus(groupId: rhs.groupId)
-        } catch {
-            return false
-        }
+        let lhsLastUpdated = lastUpdated(team: lhs)
+        let rhsLastUpdated = lastUpdated(team: rhs)
+        return lhsLastUpdated > rhsLastUpdated
+    }
+    
+    func lastUpdated(team: Team) -> Date {
+        let ownLocationSharingStateLastUpdated = locationSharingManager.locationSharingState(userId: signedInUser.userId, groupId: team.groupId).lastUpdated
+        let othersLocationSharingStateLastUpdated = locationSharingManager.othersLocationSharingState(ownUserId: signedInUser.userId, groupId: team.groupId).map(\.lastUpdated).max(by: <)
+        let lastMessageDate = (chatManager.lastMessage(for: team.groupId) as? DateableProtocol)?.date
+        let membership = try? groupStorageManager.loadMembership(userId: signedInUser.userId, groupId: team.groupId).serverSignedMembershipCertificate
+        let joinDate: Date? = try? membership.map(authManager.membershipCertificateCreationDate(certificate:))
         
-        let orderForMeetupState = { (status: ParticipationStatus) -> Int in
-            switch status {
-            case .sharing: return 0
-            case .none, .onlyOthersSharing: return 1
-            }
-        }
-        
-        let lhsOrder = orderForMeetupState(lhsParticipationStatus)
-        let rhsOrder = orderForMeetupState(rhsParticipationStatus)
-        
-        if lhsOrder != rhsOrder {
-            return lhsOrder < rhsOrder
-        }
-        
-        let lhsActivity = chatManager.lastMessage(for: lhs.groupId) as? DateableProtocol
-        let rhsActivity = chatManager.lastMessage(for: rhs.groupId) as? DateableProtocol
-        
-        switch (lhsActivity, rhsActivity) {
-        case (.some(let left), .some(let right)):
-            return left.date > right.date
-        case (.some, .none):
-            return true
-        case (.none, .some):
-            return false
-        default:
-            break
-        }
-        
-        let lhsName = nameSupplier.name(team: lhs)
-        let rhsName = nameSupplier.name(team: rhs)
-        switch lhsName.caseInsensitiveCompare(rhsName) {
-        case .orderedAscending:
-            return true
-        case .orderedDescending:
-            return false
-        case .orderedSame:
-            return lhs.groupId.uuidString < rhs.groupId.uuidString
-        }
+        let datesOrNil: [Date?] = [ownLocationSharingStateLastUpdated, othersLocationSharingStateLastUpdated, lastMessageDate, joinDate]
+        let dates = datesOrNil.compactMap { $0 }
+        return dates.max(by: <) ?? .distantPast
     }
     
     func demoTeamCellViewModel(for indexPath: IndexPath) -> DemoTeamCellViewModel {
@@ -344,6 +313,7 @@ class TeamsViewModel {
 
     func teamCellViewModel(for indexPath: IndexPath) -> TeamCellViewModel {
         let team = teamFor(row: indexPath.row)
+        let lastUpdated = lastUpdated(team: team)
         var participationStatus: ParticipationStatus
         var members: [Member]
         do {
@@ -355,7 +325,7 @@ class TeamsViewModel {
             members = []
         }
 
-        return resolver.resolve(TeamCellViewModel.self, arguments: team, members, participationStatus)!
+        return resolver.resolve(TeamCellViewModel.self, arguments: team, members, lastUpdated, participationStatus)!
     }
 
     func createNewTeam(source: String) {
@@ -497,6 +467,7 @@ class TeamsViewModel {
     }
     
     private func reloadSynchronously() {
+        self.teams.sort(by: sortByImportance)
         self.delegate?.tableView?.reloadData()
     }
     

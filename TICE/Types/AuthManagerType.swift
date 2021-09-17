@@ -7,6 +7,7 @@ import TICEAuth
 
 protocol AuthManagerType {
     func createUserSignedMembershipCertificate(userId: UserId, groupId: GroupId, admin: Bool, issuerUserId: UserId, signingKey: PrivateKey) throws -> Certificate
+    func membershipCertificateCreationDate(certificate: Certificate) throws -> Date
     func membershipCertificateExpirationDate(certificate: Certificate) throws -> Date
     func generateAuthHeader(signingKey: PrivateKey, userId: UserId) throws -> Certificate
 }

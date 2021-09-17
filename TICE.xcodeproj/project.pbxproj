@@ -3783,7 +3783,7 @@
 			repositoryURL = "https://github.com/TICESoftware/TICE-Auth";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 6.1.0;
 			};
 		};
 		E5515DEF260B50CC00B91BAA /* XCRemoteSwiftPackageReference "BlueECC" */ = {

@@ -267,8 +267,8 @@
         "repositoryURL": "https://github.com/TICESoftware/TICE-Auth",
         "state": {
           "branch": null,
-          "revision": "e8a0a84f1d21a57a0935ec8b939150b1072a411c",
-          "version": "5.0.0"
+          "revision": "c0e678d2548a98de93f92c46a6ce8c5b12246443",
+          "version": "6.1.0"
         }
       },
       {
