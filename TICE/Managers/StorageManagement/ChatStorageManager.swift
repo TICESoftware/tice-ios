@@ -10,6 +10,7 @@ import GRDB
 
 protocol ChatStorageManagerType: DeletableStorageManagerType {
     func unreadMessageCount() throws -> Int
+    func unreadMessageCount(for groupId: GroupId) throws -> Int
     
     func save(messages: [ChatItemProtocol], for groupId: GroupId)
     func message(messageId: String) throws -> ChatItemProtocol?
@@ -59,6 +60,12 @@ class ChatStorageManager: ChatStorageManagerType {
     func message(messageId: String) throws -> ChatItemProtocol? {
         try database.read { db -> ChatItemProtocol? in
             return try RawChatMessage.fetchOne(db, key: messageId)?.chatItem
+        }
+    }
+    
+    func unreadMessageCount(for groupId: GroupId) throws -> Int {
+        try database.read { db in
+            return try RawChatMessage.filter(Column("read") == false).filter(Column("groupId") == groupId).fetchCount(db)
         }
     }
     

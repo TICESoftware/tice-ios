@@ -153,7 +153,7 @@ class TeamMapChatViewModel: TeamMapChatViewModelType {
     @objc
     private func handleForegroundTransition() {
         do {
-            self.chatBadgeNumber.wrappedValue = try chatStorageManager.unreadMessageCount()
+            self.chatBadgeNumber.wrappedValue = try chatStorageManager.unreadMessageCount(for: team.groupId)
         } catch {
             logger.error("Error reloading data after transition to foreground: \(error)")
         }

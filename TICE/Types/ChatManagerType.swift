@@ -11,6 +11,7 @@ protocol ChatManagerType {
     func lastMessage(for groupId: GroupId) -> ChatItemProtocol?
     
     func unreadMessageCount() -> Int
+    func unreadMessageCount(for groupId: GroupId) -> Int
     func unreadMessages(groupId: GroupId) -> [ChatItemProtocol]
 
     func updateStatus(updatedMessages: [ChatItemProtocol], groupId: GroupId)

@@ -85,6 +85,15 @@ class ChatManager: ChatManagerType {
         }
     }
     
+    func unreadMessageCount(for groupId: GroupId) -> Int {
+        do {
+            return try storageManager.unreadMessageCount(for: groupId)
+        } catch {
+            logger.error("Could not get unread message count for team \(groupId). Reason: \(error)")
+            return 0
+        }
+    }
+    
     func unreadMessages(groupId: GroupId) -> [ChatItemProtocol] {
         do {
             return try storageManager.unreadMessages(groupId: groupId)
