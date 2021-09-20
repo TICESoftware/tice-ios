@@ -212,7 +212,8 @@ class TeamsViewModel {
             self?.reloadSynchronously()
         }.add(to: &disposal)
         
-        teamsObserverToken = self.groupStorageManager.observeTeams(queue: .main) { [unowned self] _ in
+        teamsObserverToken = self.groupStorageManager.observeTeams(queue: .main) { [unowned self] teams in
+            self.teams = teams
             self.reloadSynchronously()
         }
         
