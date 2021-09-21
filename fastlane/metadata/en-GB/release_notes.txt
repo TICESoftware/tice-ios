@@ -1,4 +1,8 @@
-Location sharing has been redesigned and now works easier as ever before.
-No need to create or join a meetup first. Just share your location with your group members!
+Some bugs were fixed:
+- The group list is now sorted more sensibly
+- Unread message badge now shows the correct number
+- Crash if someone comes into the group and you just shared your location
+- Crash when switching between foreground and background
+- Your own location is determined more precisely in some situations
 
-If you encounter a bug or want to share your thoughts on TICE feel free to reach out to us.
+If you find any bugs or want to give us your opinion on TICE, please contact us.
