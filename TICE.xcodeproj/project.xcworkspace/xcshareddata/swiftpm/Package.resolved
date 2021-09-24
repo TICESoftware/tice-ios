@@ -105,7 +105,7 @@
         "repositoryURL": "https://github.com/TICESoftware/GRDB.swift",
         "state": {
           "branch": "SPM+sqlcipher",
-          "revision": "f74bfab8c8aa77b91f7d38284c5a3203ccced2cf",
+          "revision": "8b983f2a2373339772ebecae206a4b2da121ae7b",
           "version": null
         }
       },
