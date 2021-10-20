@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7D06B55C223EA50F000D8B17 /* Backend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DB195E52197052D005111DD /* Backend.swift */; };
 		7D06B55E223EB9B6000D8B17 /* XCUITestsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D06B55D223EB9B6000D8B17 /* XCUITestsHelper.swift */; };
+		7D0E5F0F2720474D009A9B59 /* SwinjectStoryboard in Frameworks */ = {isa = PBXBuildFile; productRef = 7D0E5F0E2720474D009A9B59 /* SwinjectStoryboard */; };
 		7D10EBE524201ACB00859FB4 /* Bundle+BuildNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D10EBE424201ACB00859FB4 /* Bundle+BuildNumber.swift */; };
 		7D10EBE824201B8200859FB4 /* Bundle+BuildNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D10EBE424201ACB00859FB4 /* Bundle+BuildNumber.swift */; };
 		7D10EBEA2420232400859FB4 /* VersionStorageManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D10EBE92420232400859FB4 /* VersionStorageManagerTests.swift */; };
@@ -503,8 +504,6 @@
 		E5A5DF5C25F905FB000C9604 /* Starscream in Frameworks */ = {isa = PBXBuildFile; productRef = E5A5DF5B25F905FB000C9604 /* Starscream */; };
 		E5A5DF6425F90643000C9604 /* Beekeeper in Frameworks */ = {isa = PBXBuildFile; productRef = E5A5DF6325F90643000C9604 /* Beekeeper */; };
 		E5A5DF6B25F90651000C9604 /* Beekeeper in Frameworks */ = {isa = PBXBuildFile; productRef = E5A5DF6A25F90651000C9604 /* Beekeeper */; };
-		E5A5DF8225F907A0000C9604 /* SwinjectStoryboard in Frameworks */ = {isa = PBXBuildFile; productRef = E5A5DF8125F907A0000C9604 /* SwinjectStoryboard */; };
-		E5A5DF8925F907BD000C9604 /* SwinjectStoryboard in Frameworks */ = {isa = PBXBuildFile; productRef = E5A5DF8825F907BD000C9604 /* SwinjectStoryboard */; };
 		E5A5DF9125F907F3000C9604 /* SwinjectAutoregistration in Frameworks */ = {isa = PBXBuildFile; productRef = E5A5DF9025F907F3000C9604 /* SwinjectAutoregistration */; };
 		E5A5DF9925F90849000C9604 /* Sniffer in Frameworks */ = {isa = PBXBuildFile; productRef = E5A5DF9825F90849000C9604 /* Sniffer */; };
 		E5A5DFA025F9085A000C9604 /* Sniffer in Frameworks */ = {isa = PBXBuildFile; productRef = E5A5DF9F25F9085A000C9604 /* Sniffer */; };
@@ -992,7 +991,6 @@
 				E5515DB7260B45A200B91BAA /* ChattoAdditions in Frameworks */,
 				E5A5DFA825F908B4000C9604 /* ZIPFoundation in Frameworks */,
 				E5515DB9260B45A200B91BAA /* Chatto in Frameworks */,
-				E5A5DF8225F907A0000C9604 /* SwinjectStoryboard in Frameworks */,
 				E5515DD9260B4ECC00B91BAA /* X3DH in Frameworks */,
 				E5C841992641383800556617 /* TICEAPIModels in Frameworks */,
 				E5A5DEB925F8F4A1000C9604 /* PromiseKit in Frameworks */,
@@ -1006,6 +1004,7 @@
 				E5515E09260B8AA600B91BAA /* HKDF in Frameworks */,
 				E54AE2EC25FA103300AE4A5F /* GRDB in Frameworks */,
 				E5A5DF1925F90201000C9604 /* Valet in Frameworks */,
+				7D0E5F0F2720474D009A9B59 /* SwinjectStoryboard in Frameworks */,
 				E5A5DF9925F90849000C9604 /* Sniffer in Frameworks */,
 				E5A5DF2825F904E1000C9604 /* Observable in Frameworks */,
 				E5515DE1260B4F2300B91BAA /* DoubleRatchet in Frameworks */,
@@ -1075,7 +1074,6 @@
 				E5A5DED825F8F626000C9604 /* Version in Frameworks */,
 				E5515DC7260B46DB00B91BAA /* ChattoAdditions in Frameworks */,
 				E5A5DF2F25F904E7000C9604 /* Observable in Frameworks */,
-				E5A5DF8925F907BD000C9604 /* SwinjectStoryboard in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1704,7 +1702,6 @@
 				E5A5DF4525F905A7000C9604 /* ConvAPI */,
 				E5A5DF5425F905ED000C9604 /* Starscream */,
 				E5A5DF6325F90643000C9604 /* Beekeeper */,
-				E5A5DF8125F907A0000C9604 /* SwinjectStoryboard */,
 				E5A5DF9025F907F3000C9604 /* SwinjectAutoregistration */,
 				E5A5DF9825F90849000C9604 /* Sniffer */,
 				E5A5DFA725F908B4000C9604 /* ZIPFoundation */,
@@ -1720,6 +1717,7 @@
 				E5515DF0260B50CD00B91BAA /* CryptorECC */,
 				E5515E08260B8AA600B91BAA /* HKDF */,
 				E5C841982641383800556617 /* TICEAPIModels */,
+				7D0E5F0E2720474D009A9B59 /* SwinjectStoryboard */,
 			);
 			productName = LetsMeet;
 			productReference = 7D9D514421874D1D00168F78 /* TICE.app */;
@@ -1827,7 +1825,6 @@
 				E5A5DF4C25F905C1000C9604 /* ConvAPI */,
 				E5A5DF5B25F905FB000C9604 /* Starscream */,
 				E5A5DF6A25F90651000C9604 /* Beekeeper */,
-				E5A5DF8825F907BD000C9604 /* SwinjectStoryboard */,
 				E5A5DF9F25F9085A000C9604 /* Sniffer */,
 				E5A5DFAE25F908E9000C9604 /* ZIPFoundation */,
 				E5D4234D25F91E8500C966FA /* PMKCoreLocation */,
@@ -1918,7 +1915,6 @@
 				E5A5DF4425F905A7000C9604 /* XCRemoteSwiftPackageReference "ConvAPI" */,
 				E5A5DF5325F905ED000C9604 /* XCRemoteSwiftPackageReference "Starscream" */,
 				E5A5DF6225F90643000C9604 /* XCRemoteSwiftPackageReference "Beekeeper" */,
-				E5A5DF8025F907A0000C9604 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */,
 				E5A5DF8F25F907F3000C9604 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */,
 				E5A5DF9725F90849000C9604 /* XCRemoteSwiftPackageReference "Sniffer" */,
 				E5A5DFA625F908B4000C9604 /* XCRemoteSwiftPackageReference "ZIPFoundation" */,
@@ -1935,6 +1931,7 @@
 				E5515DEF260B50CC00B91BAA /* XCRemoteSwiftPackageReference "BlueECC" */,
 				E5515E07260B8AA600B91BAA /* XCRemoteSwiftPackageReference "HKDF" */,
 				E5C841972641383800556617 /* XCRemoteSwiftPackageReference "TICE-APIModels" */,
+				7D0E5F0D2720474D009A9B59 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */,
 			);
 			productRefGroup = 7D9D514521874D1D00168F78 /* Products */;
 			projectDirPath = "";
@@ -3707,6 +3704,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7D0E5F0D2720474D009A9B59 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/SwinjectStoryboard.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.2;
+			};
+		};
 		7D385FB02680B82700C16C85 /* XCRemoteSwiftPackageReference "Cuckoo" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Brightify/Cuckoo";
@@ -3875,14 +3880,6 @@
 				minimumVersion = 0.6.1;
 			};
 		};
-		E5A5DF8025F907A0000C9604 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/BarredEwe/SwinjectStoryboard";
-			requirement = {
-				branch = swiftPM;
-				kind = branch;
-			};
-		};
 		E5A5DF8F25F907F3000C9604 /* XCRemoteSwiftPackageReference "SwinjectAutoregistration" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/SwinjectAutoregistration";
@@ -3926,6 +3923,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7D0E5F0E2720474D009A9B59 /* SwinjectStoryboard */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7D0E5F0D2720474D009A9B59 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */;
+			productName = SwinjectStoryboard;
+		};
 		7D385FAF2680B82700C16C85 /* Cuckoo */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7D385FB02680B82700C16C85 /* XCRemoteSwiftPackageReference "Cuckoo" */;
@@ -4175,16 +4177,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E5A5DF6225F90643000C9604 /* XCRemoteSwiftPackageReference "Beekeeper" */;
 			productName = Beekeeper;
-		};
-		E5A5DF8125F907A0000C9604 /* SwinjectStoryboard */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E5A5DF8025F907A0000C9604 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */;
-			productName = SwinjectStoryboard;
-		};
-		E5A5DF8825F907BD000C9604 /* SwinjectStoryboard */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = E5A5DF8025F907A0000C9604 /* XCRemoteSwiftPackageReference "SwinjectStoryboard" */;
-			productName = SwinjectStoryboard;
 		};
 		E5A5DF9025F907F3000C9604 /* SwinjectAutoregistration */ = {
 			isa = XCSwiftPackageProductDependency;

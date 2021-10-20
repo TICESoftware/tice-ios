@@ -51,8 +51,8 @@
         "repositoryURL": "https://github.com/PromiseKit/CoreLocation",
         "state": {
           "branch": null,
-          "revision": "d027bbcdfffc83fa7a790aa6f9189b18c94632e2",
-          "version": "3.1.1"
+          "revision": "fcb6e45aa93dbce4a56e65a7a2649ec304867ac0",
+          "version": "3.1.2"
         }
       },
       {
@@ -60,8 +60,8 @@
         "repositoryURL": "https://github.com/krzyzanowskim/CryptoSwift.git",
         "state": {
           "branch": null,
-          "revision": "8d4f6384e0a8cc41f2005247241dd553963a492a",
-          "version": "1.4.1"
+          "revision": "4b0565384d3c4c588af09e660535b2c7c9bf5b39",
+          "version": "1.4.2"
         }
       },
       {
@@ -87,8 +87,8 @@
         "repositoryURL": "https://github.com/xmartlabs/Eureka",
         "state": {
           "branch": null,
-          "revision": "523af88efc83cdaf39b415446be1ca1529f5664d",
-          "version": "5.3.3"
+          "revision": "975e8d5e0ea3c86aff828537b2d4abe4430d6312",
+          "version": "5.3.4"
         }
       },
       {
@@ -123,8 +123,8 @@
         "repositoryURL": "https://github.com/vapor/jwt-kit.git",
         "state": {
           "branch": null,
-          "revision": "7a9a04df93e71de10fa2e8d6e9430dd0a7924643",
-          "version": "4.2.4"
+          "revision": "ca2edf69a613f3d89354114f56cfd9921d2727d5",
+          "version": "4.2.6"
         }
       },
       {
@@ -195,8 +195,8 @@
         "repositoryURL": "https://github.com/apple/swift-crypto.git",
         "state": {
           "branch": null,
-          "revision": "3bea268b223651c4ab7b7b9ad62ef9b2d4143eb6",
-          "version": "1.1.6"
+          "revision": "127d3745c37b5705e4bc8d16c7951c48dcc3332c",
+          "version": "2.0.0"
         }
       },
       {
@@ -231,8 +231,8 @@
         "repositoryURL": "https://github.com/Swinject/Swinject.git",
         "state": {
           "branch": null,
-          "revision": "b1d92a53159fe45e162c307183aec9be15e4e7ae",
-          "version": "2.8.0"
+          "revision": "f10b6e9ebff440f985c43008f7c2d097639fcb81",
+          "version": "2.8.1"
         }
       },
       {
@@ -240,17 +240,17 @@
         "repositoryURL": "https://github.com/Swinject/SwinjectAutoregistration",
         "state": {
           "branch": null,
-          "revision": "136e57231434d038c3beef939e81f60f36ec8aec",
-          "version": "2.7.0"
+          "revision": "9936170fd1a5e8c141a21de987c48cc4e0d6c943",
+          "version": "2.8.1"
         }
       },
       {
         "package": "SwinjectStoryboard",
-        "repositoryURL": "https://github.com/BarredEwe/SwinjectStoryboard",
+        "repositoryURL": "https://github.com/Swinject/SwinjectStoryboard.git",
         "state": {
-          "branch": "swiftPM",
-          "revision": "8085afee3bc8aa5999f85fcc62ee56d087694962",
-          "version": null
+          "branch": null,
+          "revision": "a39bd7abe7e7427f9a0929a402cf2d1916fa5d50",
+          "version": "2.2.2"
         }
       },
       {
