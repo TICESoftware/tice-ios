@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 
 git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 
-gem 'fastlane'
+gem 'fastlane', '~> 2.197.0'
 gem 'poeditor-cli'
 gem 'rubocop'
 
