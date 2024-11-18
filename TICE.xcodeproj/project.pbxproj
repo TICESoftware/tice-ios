@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -2050,7 +2050,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/zsh;
-			shellScript = "if [ $ACTION = \"indexbuild\" ]; then\n  echo \"Xcode is indexing the build. Skipping the script.\"\n  exit 0\nfi\n\nswiftgen\n";
+			shellScript = "if [ $ACTION = \"indexbuild\" ]; then\n  echo \"Xcode is indexing the build. Skipping the script.\"\n  exit 0\nfi\n\n/opt/homebrew/bin/swiftgen\n";
 		};
 		7DB70A9F265F90DE0041D9AA /* Save Revision */ = {
 			isa = PBXShellScriptBuildPhase;
